@@ -96,16 +96,15 @@
             player.cs.resourceCoreScrapsToGet = new Decimal(0)
         }
 
-        for (let i = 0; i < player.cs.resourceCoreScraps.length; i++)
-        {
-            if (player.cs.resourceCoreScraps[i].gte(2))
-            {
-                player.cs.canBuyParagonScraps = true
-            } else
-            {
-                player.cs.canBuyParagonScraps = false
-            }
-        }
+player.cs.canBuyParagonScraps = true;
+for (let i = 0; i < player.cs.resourceCoreScraps.length; i++)
+{
+    if (player.cs.resourceCoreScraps[i].lt(2))
+    {
+        player.cs.canBuyParagonScraps = false;
+        break;
+    }
+}
 
         player.cs.paragonScrapsEffect = player.cs.paragonScraps.mul(0.6).pow(0.3).add(1)
     },
